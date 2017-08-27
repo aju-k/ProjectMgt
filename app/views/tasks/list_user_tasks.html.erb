@@ -1,0 +1,26 @@
+<h4 class="alert alert-info">Alloted Tasks</h4>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Sr.No</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Change Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% count = 0%>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= count += 1%></td>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><%= select_tag 'Change Status', options_for_select(TASK_STATUS, task.ut_status), {class: 'form-control update_task_status width-50per', "data-id": task.ut_id }%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
