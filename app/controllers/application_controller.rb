@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   # After sigin redirect to specfic path
   def after_sign_in_path_for(resource)
   	if current_user.is_admin?
-      developer_status_report_path
+      show_project_pie_chart_path
   	else
   		list_user_tasks_path
   	end
